@@ -9,7 +9,7 @@ const Context = (props) => {
     const getProducts = async () => {
         try {
             const response = await axios("/products");
-           setProducts(response.data);
+            setProducts(response.data);
         } catch (error) {
             console.log("Error fetching products:", error);
         }
@@ -20,11 +20,9 @@ const Context = (props) => {
     }, []);
 
     return (
-        <div>
-            <ProductContext.Provider value={[products, setProducts]}>
-                {props.children}
-            </ProductContext.Provider>
-        </div>
+        <ProductContext.Provider value={[products, setProducts]}>
+            {props.children}
+        </ProductContext.Provider>
     );
 };
 

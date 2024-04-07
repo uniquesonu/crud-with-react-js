@@ -31,25 +31,25 @@ const Home = () => {
   return (
     <>
       <Nav />
-      <main className="left-[15%] w-[85%]  p-5 overflow-y-auto">
+      <main className="sm:left-[15%] sm:w-[85%] p-5 overflow-y-auto">
         <h1 className="text-3xl font-bold mb-5">Products</h1>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredProducts &&
             filteredProducts.map((product) => (
               <Link
                 to={`/details/${product.id}`}
                 key={product.id}
-                className="bg-white p-5 flex gap-4 space-x-4 items-center shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all"
+                className="bg-white p-5 flex flex-col sm:flex-row gap-4 items-center shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all"
               >
                 <img
                   src={product.image}
                   alt="product"
-                  className="w-1/3 object-cover"
+                  className="w-full sm:w-1/3 object-cover mb-4 sm:mb-0"
                 />
-                <div className="p-5 w-2/3">
-                  <h1 className="text-2xl font-bold">{product.title}</h1>
+                <div className="p-5 w-full sm:w-2/3">
+                  <h1 className="text-xl sm:text-2xl font-bold mb-2">{product.title}</h1>
+                  {/* Add more details about the product if needed */}
                 </div>
-                <div className="mt-4"></div>
               </Link>
             ))}
         </div>
